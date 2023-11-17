@@ -4,6 +4,8 @@
 
 This is based off a [forked official Porkbun project that is no longer supported,](https://github.com/porkbundomains/porkbun-dynamic-dns-python) so be warned. 
 
+This forked image has been changed to check the current DNS value of a domain to see if the update can be skipped.
+
 ### Docker Compose
 ```docker
 version: "3"
