@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  Build-&-Push:
+  Build-and-Push:
     runs-on: ubuntu-latest
     
     steps:
