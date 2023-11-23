@@ -1,5 +1,5 @@
 # Adjusted https://github.com/marcel-dempers/docker-development-youtube-series/blob/master/.github/workflows/docker._yaml according to my needs
-name: Build & push Porkbun-DDNS-Docker
+name: Build & Push Porkbun-DDNS-Docker
 
 on: 
   push:
@@ -14,14 +14,14 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - name: log in to docker
+    - name: Login to Docker
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}   
         DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}  
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_TOKEN
         
-    - name: build & push docker image
+    - name: Build & Push Docker Image
       run: |
         docker buildx create --name builder_porkbun-ddns --use 
         docker buildx build --push --no-cache -t dazznap/porkbun-ddns:latest . --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6,linux/386
